@@ -1,3 +1,9 @@
+/*Brent Vaalburg
+CSCI430
+Java Notes Player with Linux Piping support
+Dependencies : Java 8, Jfugue (included)
+ */
+
 import org.jfugue.player.Player;
 import java.io.RandomAccessFile;
 
@@ -5,39 +11,36 @@ public class PlayNotes {
 
     public static void main(String[] args){
 
-
         try {
             RandomAccessFile pipe = new RandomAccessFile(
-                    "\\\\.\\pipe\\notes_request_pipe", "rw");
+                    //path to named pipe made with Linux mkfifo command
+                    //cd to directory where you would like to keep the named pipe then run
+                    //mkfifo <pipename>
+                    "/home/bvaalb/notesPipe", "rw");
 
-            String notesRequest = "Request Notes";
+            // Read pipe
+            String pipeInput = pipe.readLine();
 
-            // Send request to the pipe
-            pipe.write(notesRequest.getBytes());
+            // Close pipe
+            pipe.close();
 
-            // Read response from pipe
-            String response = pipe.readLine();
+            //create new player object for playing notes
 
-            if ( response != null) {
+            System.out.println(pipeInput);
 
-                //create new player object for playing notes
-
-                Player player = new Player();
-
-                //pass in piped notes and durations to the player object
-                player.play(response);
-
-                break;
-
-            }
         }
         //catch all exception and print to console
         catch (Exception e){
 
-            System.out.println("Exception Occured!");
+            System.out.println(e);
 
         }
 
 
     }
 }
+
+
+
+
+
