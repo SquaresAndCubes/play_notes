@@ -6,7 +6,7 @@ Dependencies : Java 8, Jfugue (included in /jars folder), Linux (mkfifo command 
 
 **********Instructions***************
 * 1. Create a <pipe_name> in the path of your choice in a Linux environment @ the terminal using mkfifo <pipe_name>
-* 2. In this code set the RandomAccessFile 'pipe' variable on line #44 to your created <pipe_name>
+* 2. In this code set the RandomAccessFile 'pipe' variable on line #43 to your created <pipe_name>
 * 3. Run this program
 *
 * Now you have 2 options to pass Notes Into PlayNotes
@@ -27,7 +27,6 @@ Dependencies : Java 8, Jfugue (included in /jars folder), Linux (mkfifo command 
 //import dependencies
 import org.jfugue.player.Player;
 import java.io.RandomAccessFile;
-import java.util.Random;
 
 public class PlayNotes {
 
