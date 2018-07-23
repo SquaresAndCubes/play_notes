@@ -41,7 +41,7 @@ public class PlayNotes {
 
             pipe = new RandomAccessFile(
                     //path to <pipe_name> made with Linux mkfifo command
-                    "/home/sqaresandcubes/notesPipe", "r");
+                    "/usr2/c_bvaalb/notesPipe", "r");
 
             //while loops keeps accepting piped input
             while(true) {
@@ -51,7 +51,7 @@ public class PlayNotes {
 
                 if (pipeInput != null) {
 
-                    //print pipeInput to console
+                    //print pipeInput to console showing user what notes are to be played
                     System.out.println("Playing Sequence: " + pipeInput);
 
                     //execute the play function of the player object
@@ -59,7 +59,6 @@ public class PlayNotes {
                     player.play(pipeInput);
                 }
             }
-
 
         }
 
@@ -69,7 +68,6 @@ public class PlayNotes {
             e.printStackTrace();
 
         }
-
 
     }
 }
